@@ -26,6 +26,13 @@
             tapping-term-ms = <200>;
             bindings = <&kp P>, <&kp DEL>;
         };
+        td2: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp A>, <&kp CAPS>;
+        };
       };
        
         keymap {
@@ -33,27 +40,27 @@
 
                 default_layer {
 //      -------------------------------------------------------------------------------------
-//      |   Q   |   W   |   E   |   R   |   T  |   |   Y   |   U   |   I   |   O   |  P/DEL  | 
-//      |   A   |   S   |   D   |   F   |   G  |   |   H   |   J   |   K   |   L   |  ' "    |
-//      | SHF/Z |   X   |   C   |   V   |   B  |   |   N   |   M   |   ,<  |   .>  | SHFT/?  |
-//              | OPT/ESC | CMD   |   CTR/TAB  |   | SPACE | L1/ENT | L2/BSP |
+//      | Q(TAB)|   W   |   E   |   R   |   T  |   |   Y   |   U   |   I   |   O   |  P(DEL) | 
+//      |A(CAPS)|   S   |   D   |   F   |   G  |   |   H   |   J   |   K   |   L   |   ;:    |
+//      | SHF/Z |   X   |   C   |   V   |   B  |   |   N   |   M   |   ,<  |   .>  | SHF/ /  |
+//                   |  CTR  |   OPT   |  CMD  |   | SPACE | L1/ENT | L2/BSP |
                         bindings = <
-   &td0         &kp W   &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I           &kp O           &td1 
-   &kp A        &kp S   &kp D   &kp F   &kp G   &kp H   &kp J   &kp K           &kp L           &kp APOS 
-   &mt LSHFT Z  &kp X   &kp C   &kp V   &kp B   &kp N   &kp M   &kp COMMA       &kp DOT         &mt RSHFT QMARK
-   &mt LALT ESC         &kp LCMD        &mt LCTRL TAB            &kp SPACE           &lt 1 ENTER      &lt 2 BSPC
+   &td0       &kp W   &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I           &kp O           &td1 
+   &td2       &kp S   &kp D   &kp F   &kp G   &kp H   &kp J   &kp K           &kp L           &kp SEMI  
+   &mt LSHFT Z  &kp X   &kp C   &kp V   &kp B   &kp N   &kp M   &kp COMMA       &kp DOT         &mt RSHFT FSLH
+   &mt LCTRL ESC         &kp LALT       &mt LCMD          &kp SPACE           &lt 1 ENTER      &lt 2 BSPC
                                 >;
                 };
 
                 lower_layer {
 // ----------------------------------------------------------------------------------
 // |  1! |  2@  |  3#  |  4$  |  5%  |   |  6^  |  7&  |  8*  |  9(  |  0) |
-// | `~  | HOME | PGUP | PGDN | END  |   | LEFT | DOWN |  UP | RGHT |  ;:  | 
-// | SHST| CAPS |      |      |      |   |  -_  |  =+  | [{  | ]}   | SHF\||
+// | `~  | HOME | PGUP | PGDN | END  |   | LEFT | DOWN |  UP | RGHT | ' "  | 
+// | SHST| CAPS |BT-CLR|      |      |   |  -_  |  =+  | [{  | ]}   | SHF\||
 //              |      |      |      |   |      |(hold)|     |
                         bindings = <
    &kp N1       &kp N2      &kp N3 &kp N4 &kp N5      &kp N6 &kp N7 &kp N8   &kp N9  &kp N0  
-   &kp GRAVE    &kp HOME    &kp PG_UP &kp PG_DN &kp END       &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp SEMI
+   &kp GRAVE    &kp HOME    &kp PG_UP &kp PG_DN &kp END       &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp APOS
    &kp LSFT     &kp CAPS    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &mt RSHFT PIPE
                         >;
                };
@@ -66,7 +73,7 @@
 //                      |      |      |   |      |      |(hold)| 
                         bindings = <
    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5        &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
-   &kp F11   &kp F12 &kp C_PREV  &kp C_PREV  &kp C_NEXT      &kp C_MUTE    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP   
+   &kp F11   &kp F12 &kp C_PREV  &kp C_PP  &kp C_NEXT      &kp C_MUTE    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_DN    &kp C_BRI_UP   
    
                               
                         >;
