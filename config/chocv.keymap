@@ -19,7 +19,8 @@
             tapping-term-ms = <200>;
             bindings = <&kp Q>, <&kp ESC>;
         };
-        
+      };
+       
         keymap {
                 compatible = "zmk,keymap";
 
